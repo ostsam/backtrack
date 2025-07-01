@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02A8AC63518CD7BD45297ECC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DFFFABEB71E5025077C1524F /* PrivacyInfo.xcprivacy */; };
+		0EB2519EA825CEDD759F2044 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87029AB28F2A2AD47ADE4395 /* ExpoModulesProvider.swift */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		2D95F582726B3FE538968AFB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F9DE0216F2F0F32AE7E3140F /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		45A79A77323819F8AC9F1302 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D193B98A99EC8633E9083FD /* ExpoModulesProvider.swift */; };
+		A0A79224CB6C2B434F1AC731 /* libPods-Backtrack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8981D112A73DCDA656A7FA20 /* libPods-Backtrack.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		E821F0638E8E6B995F715CE2 /* libPods-Backtrack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A15122ADAC9EDCCA1E0508 /* libPods-Backtrack.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,16 +20,16 @@
 		13B07F961A680F5B00A75B9A /* Backtrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backtrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Backtrack/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Backtrack/Info.plist; sourceTree = "<group>"; };
-		1A915FF37C4CB73EBE588F32 /* Pods-Backtrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backtrack.debug.xcconfig"; path = "Target Support Files/Pods-Backtrack/Pods-Backtrack.debug.xcconfig"; sourceTree = "<group>"; };
-		3D193B98A99EC8633E9083FD /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Backtrack/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		86A15122ADAC9EDCCA1E0508 /* libPods-Backtrack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Backtrack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22FF30C275FAF72D036211F9 /* Pods-Backtrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backtrack.release.xcconfig"; path = "Target Support Files/Pods-Backtrack/Pods-Backtrack.release.xcconfig"; sourceTree = "<group>"; };
+		323354B13CCF9EDC14C1CE64 /* Pods-Backtrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backtrack.debug.xcconfig"; path = "Target Support Files/Pods-Backtrack/Pods-Backtrack.debug.xcconfig"; sourceTree = "<group>"; };
+		87029AB28F2A2AD47ADE4395 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Backtrack/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		8981D112A73DCDA656A7FA20 /* libPods-Backtrack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Backtrack.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Backtrack/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		D3BC7BA76F84BF0571E734DA /* Pods-Backtrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Backtrack.release.xcconfig"; path = "Target Support Files/Pods-Backtrack/Pods-Backtrack.release.xcconfig"; sourceTree = "<group>"; };
-		DFFFABEB71E5025077C1524F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Backtrack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Backtrack/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* Backtrack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Backtrack-Bridging-Header.h"; path = "Backtrack/Backtrack-Bridging-Header.h"; sourceTree = "<group>"; };
+		F9DE0216F2F0F32AE7E3140F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Backtrack/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,13 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E821F0638E8E6B995F715CE2 /* libPods-Backtrack.a in Frameworks */,
+				A0A79224CB6C2B434F1AC731 /* libPods-Backtrack.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0C15236C6179B6E83D1C23 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				DA38A73CFF9A4A7F0747649A /* Backtrack */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* Backtrack */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,7 +61,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				DFFFABEB71E5025077C1524F /* PrivacyInfo.xcprivacy */,
+				F9DE0216F2F0F32AE7E3140F /* PrivacyInfo.xcprivacy */,
 			);
 			name = Backtrack;
 			sourceTree = "<group>";
@@ -62,25 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				86A15122ADAC9EDCCA1E0508 /* libPods-Backtrack.a */,
+				8981D112A73DCDA656A7FA20 /* libPods-Backtrack.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		47517C793CF9F05DE33946C0 /* Backtrack */ = {
-			isa = PBXGroup;
-			children = (
-				3D193B98A99EC8633E9083FD /* ExpoModulesProvider.swift */,
-			);
-			name = Backtrack;
-			sourceTree = "<group>";
-		};
-		7B76F55632599837194872F4 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				47517C793CF9F05DE33946C0 /* Backtrack */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -97,8 +89,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				F167EDFBCE028724E7002F3B /* Pods */,
-				7B76F55632599837194872F4 /* ExpoModulesProviders */,
+				D16294E555E1C77BA6D4D580 /* Pods */,
+				0C0C15236C6179B6E83D1C23 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -122,14 +114,22 @@
 			path = Backtrack/Supporting;
 			sourceTree = "<group>";
 		};
-		F167EDFBCE028724E7002F3B /* Pods */ = {
+		D16294E555E1C77BA6D4D580 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1A915FF37C4CB73EBE588F32 /* Pods-Backtrack.debug.xcconfig */,
-				D3BC7BA76F84BF0571E734DA /* Pods-Backtrack.release.xcconfig */,
+				323354B13CCF9EDC14C1CE64 /* Pods-Backtrack.debug.xcconfig */,
+				22FF30C275FAF72D036211F9 /* Pods-Backtrack.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DA38A73CFF9A4A7F0747649A /* Backtrack */ = {
+			isa = PBXGroup;
+			children = (
+				87029AB28F2A2AD47ADE4395 /* ExpoModulesProvider.swift */,
+			);
+			name = Backtrack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Backtrack" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				BB58B3E393D46766A3BD2508 /* [Expo] Configure project */,
+				BF395319376B8EBEF258609A /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				7CE499062C65CCAD424A17E4 /* [CP] Embed Pods Frameworks */,
+				7322DF108A3B0E628371D640 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				02A8AC63518CD7BD45297ECC /* PrivacyInfo.xcprivacy in Resources */,
+				2D95F582726B3FE538968AFB /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +240,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CE499062C65CCAD424A17E4 /* [CP] Embed Pods Frameworks */ = {
+		7322DF108A3B0E628371D640 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,15 +270,6 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXTaskManager/ExpoTaskManager_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoSystemUI/ExpoSystemUI_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher/GTMSessionFetcher_Core_Privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport_Privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleToolboxForMac/GoogleToolboxForMac_Privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleToolboxForMac/GoogleToolboxForMac_Logger_Privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities_Privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitPoseDetection/MLKitPoseDetectionFastResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitPoseDetectionCommon/MLKitPoseDetectionCommonResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitXenoCommon/MLKitXenoResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RNSVG/RNSVGFilters.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
@@ -286,7 +277,6 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/boost/boost_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb_Privacy.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -295,15 +285,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoTaskManager_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoSystemUI_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMSessionFetcher_Core_Privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleDataTransport_Privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleToolboxForMac_Privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleToolboxForMac_Logger_Privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleUtilities_Privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitPoseDetectionFastResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitPoseDetectionCommonResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MLKitXenoResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FBLPromises_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNSVGFilters.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
@@ -311,14 +292,13 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/boost_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nanopb_Privacy.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Backtrack/Pods-Backtrack-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BB58B3E393D46766A3BD2508 /* [Expo] Configure project */ = {
+		BF395319376B8EBEF258609A /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -345,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				45A79A77323819F8AC9F1302 /* ExpoModulesProvider.swift in Sources */,
+				0EB2519EA825CEDD759F2044 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +334,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A915FF37C4CB73EBE588F32 /* Pods-Backtrack.debug.xcconfig */;
+			baseConfigurationReference = 323354B13CCF9EDC14C1CE64 /* Pods-Backtrack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -390,7 +370,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3BC7BA76F84BF0571E734DA /* Pods-Backtrack.release.xcconfig */;
+			baseConfigurationReference = 22FF30C275FAF72D036211F9 /* Pods-Backtrack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

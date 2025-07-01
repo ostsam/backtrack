@@ -13,15 +13,14 @@ Backtrack is an Expo SDK 53 (custom dev-client) mobile app that **warns users wh
 
 ## Core Libraries
 
-| Domain                   | Library                                      | Purpose                                                            |
-| ------------------------ | -------------------------------------------- | ------------------------------------------------------------------ |
-| Camera & Pose            | `react-native-vision-camera` 3.9+            | Access front camera + frame processors                             |
-|                          | `vision-camera-v3-pose-detection`            | Google ML Kit PoseDetectionAccurate plugin                         |
-|                          | _Alternative_: TFLite + Skia (see blog)      | Advanced pose detection & drawing (high complexity)                |
-| Alerts                   | `expo-audio`                                 | Loop **alert.mp3** while slouch persists                           |
-|                          | `expo-haptics`                               | Optional vibration on Android                                      |
-| Persistence              | `expo-secure-store`                          | Store per-session baseline angle + settings                        |
-| Background (Android/iOS) | `expo-background-task` + `expo-task-manager` | Periodic posture checks (Android min 15 min, iOS system-scheduled) |
+| Domain                   | Library                                      | Purpose                                                                 |
+| ------------------------ | -------------------------------------------- | ----------------------------------------------------------------------- |
+| Camera & Pose            | `expo-camera` (legacy API)                   | Capture front camera frames (1 every 2 s) to feed ML Kit pose detection |
+|                          | _Planned_: ML Kit JS bridge                  | Analyse poses and return landmarks                                      |
+| Alerts                   | `expo-audio`                                 | Loop `alert.mp3` while slouch persists                                  |
+|                          | `expo-haptics`                               | Optional vibration on Android                                           |
+| Persistence              | `expo-secure-store`                          | Store per-session baseline + settings                                   |
+| Background (Android/iOS) | `expo-background-task` + `expo-task-manager` | Periodic posture checks                                                 |
 
 ## Permissions
 
