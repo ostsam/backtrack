@@ -53,11 +53,14 @@ Backtrack is an Expo SDK 53 (custom dev-client) mobile app that **warns users wh
 
 ## UI Flow
 
-1. **Calibration Modal** (opens from "Posture" tab):
+1. **Posture Monitor** (root screen)
+   - Live camera preview in the background.
+   - Angle read-out (degrees) + slouch indicator.
+   - **Re-calibrate** button opens Calibration modal.
+2. **Calibration Modal** (`/calibrate` route)
    - Live preview, **Set Baseline** button, success confirmation.
-2. **Posture Monitor Screen** (main tab):
-   - Live angle read-out (degrees), visual slouch indicator.
-   - Settings cog (threshold, interval, vibration toggle).
+
+> The bottom tab bar was removed — navigation is currently limited to the monitor screen and the calibration modal. Additional screens will be re-introduced later as needed.
 
 ## File/Folder Conventions
 

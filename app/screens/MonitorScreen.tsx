@@ -6,6 +6,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import PoseCamera from "@/components/PoseCamera";
 import { usePose } from "@/hooks/usePose";
+import AlertManager from "@/components/AlertManager";
 
 export default function MonitorScreen() {
   const router = useRouter();
@@ -41,6 +42,9 @@ export default function MonitorScreen() {
           <ThemedText type="defaultSemiBold">Re-calibrate</ThemedText>
         </Pressable>
       </View>
+
+      {/* Invisible component that handles audio/haptics alerts */}
+      <AlertManager />
     </ThemedView>
   );
 }
