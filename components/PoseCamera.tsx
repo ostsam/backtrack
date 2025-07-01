@@ -6,16 +6,21 @@ import {
   CameraCapturedPicture,
   PermissionStatus,
 } from "expo-camera";
+import { useIsFocused } from "@react-navigation/native";
 import { useBaseline, PoseLandmarks } from "@/context/BaselineContext";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { detectPose } from "@/utils/detectPose";
 
 export default function PoseCamera() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
-
   const { setLastPose } = useBaseline();
+  const [isCameraReady, setCameraReady] = useState(false);
+  const isFocused = useIsFocused();
+  const [showCamera, setShowCamera] = useState<boolean>(true);
+  const [lastFocusTs, setLastFocusTs] = useState<number>(Date.now());
 
   // Request permission on mount
   useEffect(() => {
@@ -40,47 +45,69 @@ export default function PoseCamera() {
     })();
   }, [permission, requestPermission]);
 
+  // focus-based camera mount control
+  useEffect(() => {
+    if (isFocused) {
+      console.log("PoseCamera: Screen focused – mounting camera");
+      setShowCamera(true);
+      setLastFocusTs(Date.now());
+    } else {
+      console.log("PoseCamera: Screen unfocused – unmounting camera");
+      setShowCamera(false);
+      setCameraReady(false);
+    }
+  }, [isFocused]);
+
   // Capture a still every 2 s and run stub pose detection.
   useEffect(() => {
-    if (!hasPermission) {
-      console.log("PoseCamera: Skipping frame capture - no permission");
+    if (!hasPermission || !isCameraReady || !isFocused) {
+      console.log(
+        "PoseCamera: Skipping frame capture - not ready or no permission"
+      );
       return;
     }
     console.log("PoseCamera: Starting frame capture interval");
+    let capturing = false;
     const id = setInterval(async () => {
+      // Wait at least 1s after focus before first capture
+      if (Date.now() - lastFocusTs < 1000) {
+        return;
+      }
+      if (capturing) {
+        console.log("PoseCamera: Capture still in progress, skipping");
+        return;
+      }
       if (!cameraRef.current) {
         console.log("PoseCamera: No camera ref available");
         return;
       }
+      capturing = true;
       try {
-        // @ts-ignore – type not yet in CameraViewRef typings
+        // @ts-ignore
         const photo: CameraCapturedPicture =
           await cameraRef.current.takePictureAsync({
             base64: true,
-            skipProcessing: true,
           });
         console.log("PoseCamera: Captured frame");
         // TODO: Replace with real ML Kit integration
-        // For now, use a global stub `detectPoseFromBase64` if available.
-        let pose: PoseLandmarks = {};
-        // @ts-ignore
-        if (typeof detectPose === "function") {
-          // @ts-ignore
-          pose = (await detectPose(photo.base64)) as PoseLandmarks;
+        if (!photo.base64) {
+          console.warn("PoseCamera: No base64 data in captured image");
+        } else {
+          const pose: PoseLandmarks = await detectPose(photo.base64);
           console.log(
             "PoseCamera: Detected pose landmarks:",
             Object.keys(pose).length
           );
-        } else {
-          console.log("PoseCamera: No detectPose function available yet");
+          setLastPose(pose);
         }
-        setLastPose(pose);
       } catch (err) {
         console.warn("PoseCamera: Pose capture error", err);
+      } finally {
+        capturing = false;
       }
     }, 2000);
     return () => clearInterval(id);
-  }, [hasPermission, setLastPose]);
+  }, [hasPermission, isCameraReady, isFocused, setLastPose, lastFocusTs]);
 
   const openSettings = async () => {
     if (Platform.OS === "ios") {
@@ -101,10 +128,17 @@ export default function PoseCamera() {
           Backtrack needs camera access to monitor your posture. The camera will
           only be used to detect your pose and help you maintain good posture.
         </ThemedText>
-        {permission?.status === PermissionStatus.DENIED ? (
+        <Pressable
+          onPress={requestPermission}
+          style={({ pressed }) => [styles.button, pressed && { opacity: 0.7 }]}
+        >
+          <ThemedText style={styles.buttonText}>Grant Access</ThemedText>
+        </Pressable>
+        {permission?.status === PermissionStatus.DENIED && (
           <>
             <ThemedText style={styles.permissionText}>
-              Please enable camera access in your device settings.
+              If the prompt doesn\'t appear, enable the Camera permission in
+              system settings.
             </ThemedText>
             <Pressable
               onPress={openSettings}
@@ -116,16 +150,6 @@ export default function PoseCamera() {
               <ThemedText style={styles.buttonText}>Open Settings</ThemedText>
             </Pressable>
           </>
-        ) : (
-          <Pressable
-            onPress={requestPermission}
-            style={({ pressed }) => [
-              styles.button,
-              pressed && { opacity: 0.7 },
-            ]}
-          >
-            <ThemedText style={styles.buttonText}>Grant Access</ThemedText>
-          </Pressable>
         )}
       </ThemedView>
     );
@@ -134,12 +158,19 @@ export default function PoseCamera() {
   console.log("PoseCamera: Rendering camera view");
   return (
     <View style={StyleSheet.absoluteFill}>
-      <CameraView
-        ref={cameraRef}
-        style={StyleSheet.absoluteFill}
-        facing="front"
-        enableTorch={false}
-      />
+      {showCamera && (
+        <CameraView
+          key={lastFocusTs} // force remount on each focus
+          ref={cameraRef}
+          style={StyleSheet.absoluteFill}
+          facing="front"
+          enableTorch={false}
+          onCameraReady={() => {
+            console.log("PoseCamera: Camera is ready");
+            setCameraReady(true);
+          }}
+        />
+      )}
     </View>
   );
 }
