@@ -7,10 +7,49 @@ import { ThemedView } from "@/components/ThemedView";
 import PoseCamera from "@/components/PoseCamera";
 import { usePose } from "@/hooks/usePose";
 import AlertManager from "@/components/AlertManager";
+import { useBaseline } from "@/context/BaselineContext";
+
+const FAKE_SLUMP_POSE = {
+  leftEye: { x: 100, y: 100 },
+  rightEye: { x: 200, y: 100 },
+  leftShoulder: { x: 50, y: 250 },
+  rightShoulder: { x: 250, y: 250 },
+};
+
+const FAKE_UPRIGHT_POSE = {
+  leftEye: { x: 100, y: 100 },
+  rightEye: { x: 200, y: 100 },
+  leftShoulder: { x: 100, y: 200 },
+  rightShoulder: { x: 200, y: 200 },
+};
 
 export default function MonitorScreen() {
   const router = useRouter();
   const { angle, slouching } = usePose();
+  const { setLastPose, baseline, setBaseline } = useBaseline();
+  const [debugSlouch, setDebugSlouch] = React.useState(false);
+
+  const toggleDebugSlouch = () => {
+    const next = !debugSlouch;
+    setDebugSlouch(next);
+
+    if (!baseline) {
+      // Establish baseline first using upright pose
+      setLastPose(FAKE_UPRIGHT_POSE);
+      // Delay baseline capture to the next tick so lastPose is updated
+      setTimeout(() => {
+        setBaseline();
+      }, 0);
+    }
+
+    setLastPose(next ? FAKE_SLUMP_POSE : FAKE_UPRIGHT_POSE);
+  };
+
+  React.useEffect(() => {
+    if (!debugSlouch) return;
+    const id = setInterval(() => setLastPose(FAKE_SLUMP_POSE), 250);
+    return () => clearInterval(id);
+  }, [debugSlouch, setLastPose]);
 
   return (
     <ThemedView style={styles.container}>
@@ -41,6 +80,21 @@ export default function MonitorScreen() {
         >
           <ThemedText type="defaultSemiBold">Re-calibrate</ThemedText>
         </Pressable>
+
+        {__DEV__ && (
+          <Pressable
+            onPress={toggleDebugSlouch}
+            style={({ pressed }) => [
+              styles.debugBtn,
+              debugSlouch && { backgroundColor: "#FF9500" },
+              pressed && { opacity: 0.7 },
+            ]}
+          >
+            <ThemedText type="defaultSemiBold">
+              {debugSlouch ? "Stop Slouch" : "Sim Slouch"}
+            </ThemedText>
+          </Pressable>
+        )}
       </View>
 
       {/* Invisible component that handles audio/haptics alerts */}
@@ -75,6 +129,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#007AFF",
     paddingHorizontal: 24,
     paddingVertical: 12,
+    borderRadius: 8,
+  },
+  debugBtn: {
+    marginTop: 12,
+    backgroundColor: "#5856D6",
+    paddingHorizontal: 20,
+    paddingVertical: 8,
     borderRadius: 8,
   },
 });
