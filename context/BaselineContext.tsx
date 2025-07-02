@@ -24,6 +24,8 @@ interface BaselineContextValue {
   setLastPose: (pose: PoseLandmarks) => void;
   baseline: EyeShoulderVectors | null;
   setBaseline: () => void;
+  lastFrameSize: { width: number; height: number } | null;
+  setLastFrameSize: (size: { width: number; height: number } | null) => void;
 }
 
 const BaselineContext = createContext<BaselineContextValue | undefined>(
@@ -37,6 +39,10 @@ export const BaselineProvider: React.FC<{ children: React.ReactNode }> = ({
   const [baseline, setBaselineState] = useState<EyeShoulderVectors | null>(
     null
   );
+  const [lastFrameSize, setLastFrameSize] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
 
   const setBaseline = useCallback(() => {
     if (!lastPose) return;
@@ -68,6 +74,8 @@ export const BaselineProvider: React.FC<{ children: React.ReactNode }> = ({
     setLastPose,
     baseline,
     setBaseline,
+    lastFrameSize,
+    setLastFrameSize,
   };
 
   return (

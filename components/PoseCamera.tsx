@@ -7,17 +7,17 @@ import {
   PermissionStatus,
 } from "expo-camera";
 import { useIsFocused } from "@react-navigation/native";
-import { useBaseline, PoseLandmarks } from "@/context/BaselineContext";
+import { useBaseline } from "@/context/BaselineContext";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { detectPose } from "@/utils/detectPose";
+import { detectPose } from "@/utils/nativePose";
 import { FRAME_CAPTURE_INTERVAL_MS } from "@/constants/Posture";
 
 export default function PoseCamera() {
   const cameraRef = useRef<CameraView | null>(null);
   const [permission, requestPermission] = useCameraPermissions();
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
-  const { setLastPose } = useBaseline();
+  const { setLastPose, setLastFrameSize } = useBaseline();
   const [isCameraReady, setCameraReady] = useState(false);
   const isFocused = useIsFocused();
   const [showCamera, setShowCamera] = useState<boolean>(true);
@@ -90,16 +90,23 @@ export default function PoseCamera() {
             base64: true,
           });
         console.log("PoseCamera: Captured frame");
+        // Store frame dimensions for overlay scaling
+        if (photo.width && photo.height) {
+          setLastFrameSize({ width: photo.width, height: photo.height });
+        }
+
         // TODO: Replace with real ML Kit integration
-        if (!photo.base64) {
-          console.warn("PoseCamera: No base64 data in captured image");
+        if (!photo.uri) {
+          console.warn("PoseCamera: No file URI in captured image");
         } else {
-          const pose: PoseLandmarks = await detectPose(photo.base64);
-          console.log(
-            "PoseCamera: Detected pose landmarks:",
-            Object.keys(pose).length
-          );
-          setLastPose(pose);
+          const pose = await detectPose(photo.uri);
+          if (pose) {
+            console.log(
+              "PoseCamera: Detected pose landmarks:",
+              Object.keys(pose).length
+            );
+            setLastPose(pose);
+          }
         }
       } catch (err) {
         console.warn("PoseCamera: Pose capture error", err);
@@ -108,7 +115,14 @@ export default function PoseCamera() {
       }
     }, FRAME_CAPTURE_INTERVAL_MS);
     return () => clearInterval(id);
-  }, [hasPermission, isCameraReady, isFocused, setLastPose, lastFocusTs]);
+  }, [
+    hasPermission,
+    isCameraReady,
+    isFocused,
+    setLastPose,
+    lastFocusTs,
+    setLastFrameSize,
+  ]);
 
   const openSettings = async () => {
     if (Platform.OS === "ios") {

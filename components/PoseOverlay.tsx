@@ -13,7 +13,7 @@ const STROKE_WIDTH = 3;
 const POINT_RADIUS = 4;
 
 export default function PoseOverlay() {
-  const { lastPose } = useBaseline();
+  const { lastPose, lastFrameSize } = useBaseline();
   const [size, setSize] = useState<{ width: number; height: number } | null>(
     null
   );
@@ -24,33 +24,18 @@ export default function PoseOverlay() {
   }, []);
 
   const lines = useMemo(() => {
-    if (!size || !lastPose) return null;
+    if (!size || !lastPose || !lastFrameSize) return null;
 
     const { width, height } = size;
+    const { width: imgW, height: imgH } = lastFrameSize;
 
-    // Dynamically derive scaling based on the extents of the landmarks we
-    // actually have. This is a quick-fix until the native bridge passes us
-    // the original image dimensions. It makes the overlay fill the view even
-    // when the camera stream size is unknown.
-
-    const pts = lastPose as any;
-
-    const allPts: { x: number; y: number }[] = [];
-    [
-      pts.leftEye,
-      pts.rightEye,
-      pts.leftShoulder,
-      pts.rightShoulder,
-      pts.nose,
-    ].forEach((p) => p && allPts.push(p));
-
-    const maxX = Math.max(...allPts.map((p) => p.x));
-    const maxY = Math.max(...allPts.map((p) => p.y));
-
-    const scaleX = width / (maxX || 1);
-    const scaleY = height / (maxY || 1);
+    // Scale using the original image resolution so overlay matches preview.
+    const scaleX = width / imgW;
+    const scaleY = height / imgH;
     const sx = (x: number) => x * scaleX;
     const sy = (y: number) => y * scaleY;
+
+    const pts = lastPose as any;
 
     const segments: { x1: number; y1: number; x2: number; y2: number }[] = [];
 
@@ -79,7 +64,7 @@ export default function PoseOverlay() {
       });
     }
     return { segments, sx, sy };
-  }, [lastPose, size]);
+  }, [lastPose, size, lastFrameSize]);
 
   if (!lines) {
     return <Svg style={styles.overlay} onLayout={onLayout} />;
