@@ -11,6 +11,7 @@ import { useBaseline, PoseLandmarks } from "@/context/BaselineContext";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { detectPose } from "@/utils/detectPose";
+import { FRAME_CAPTURE_INTERVAL_MS } from "@/constants/Posture";
 
 export default function PoseCamera() {
   const cameraRef = useRef<CameraView | null>(null);
@@ -105,7 +106,7 @@ export default function PoseCamera() {
       } finally {
         capturing = false;
       }
-    }, 2000);
+    }, FRAME_CAPTURE_INTERVAL_MS);
     return () => clearInterval(id);
   }, [hasPermission, isCameraReady, isFocused, setLastPose, lastFocusTs]);
 
