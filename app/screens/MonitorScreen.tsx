@@ -5,6 +5,7 @@ import { StyleSheet, Pressable, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import PoseCamera from "@/components/PoseCamera";
+import PoseOverlay from "@/components/PoseOverlay";
 import { usePose } from "@/hooks/usePose";
 import AlertManager from "@/components/AlertManager";
 import { useBaseline } from "@/context/BaselineContext";
@@ -58,6 +59,8 @@ export default function MonitorScreen() {
       {/* Camera container with debug border */}
       <View style={styles.cameraContainer}>
         <PoseCamera />
+        {/* Draw landmark lines on top of the live preview */}
+        <PoseOverlay />
       </View>
 
       <View style={styles.overlay}>
