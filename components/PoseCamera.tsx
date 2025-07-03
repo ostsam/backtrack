@@ -89,7 +89,6 @@ export default function PoseCamera() {
             base64: true,
             // Disable shutter sound
             skipProcessing: true,
-            quality: 0.5, // Lower quality for faster processing
           });
         console.log("PoseCamera: Captured frame");
         // TODO: Replace with real ML Kit integration
