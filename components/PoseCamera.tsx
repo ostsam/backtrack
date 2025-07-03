@@ -56,6 +56,7 @@ export default function PoseCamera() {
         // @ts-ignore – type not yet in CameraViewRef typings
         const photo: CameraCapturedPicture =
           await cameraRef.current.takePictureAsync({
+<<<<<<< Updated upstream
             base64: true,
             skipProcessing: true,
           });
@@ -73,6 +74,24 @@ export default function PoseCamera() {
           );
         } else {
           console.log("PoseCamera: No detectPose function available yet");
+=======
+            skipProcessing: false,
+          });
+        console.log("PoseCamera: Captured frame");
+        if (!photo.uri) {
+          console.warn("PoseCamera: No URI in captured image");
+        } else {
+          const pose = await detectPose(photo.uri);
+          if (pose) {
+            console.log(
+              "PoseCamera: Detected pose landmarks:",
+              Object.keys(pose).length
+            );
+            setLastPose(pose);
+          } else {
+            console.warn("PoseCamera: No pose detected");
+          }
+>>>>>>> Stashed changes
         }
         setLastPose(pose);
       } catch (err) {

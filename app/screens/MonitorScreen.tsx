@@ -40,6 +40,39 @@ export default function MonitorScreen() {
         >
           <ThemedText type="defaultSemiBold">Re-calibrate</ThemedText>
         </Pressable>
+<<<<<<< Updated upstream
+=======
+
+        {__DEV__ && (
+          <>
+            <Pressable
+              onPress={toggleDebugSlouch}
+              style={({ pressed }) => [
+                styles.debugBtn,
+                debugSlouch && { backgroundColor: "#FF9500" },
+                pressed && { opacity: 0.7 },
+              ]}
+            >
+              <ThemedText type="defaultSemiBold">
+                {debugSlouch ? "Stop Slouch" : "Sim Slouch"}
+              </ThemedText>
+            </Pressable>
+
+            <Pressable
+              onPress={() => router.push("/test-pose")}
+              style={({ pressed }) => [
+                styles.debugBtn,
+                { backgroundColor: "#FF3B30" },
+                pressed && { opacity: 0.7 },
+              ]}
+            >
+              <ThemedText type="defaultSemiBold">
+                Test Pose Detection
+              </ThemedText>
+            </Pressable>
+          </>
+        )}
+>>>>>>> Stashed changes
       </View>
     </ThemedView>
   );

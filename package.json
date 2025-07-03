@@ -8,7 +8,12 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "test-pose:setup": "node ./scripts/test-pose-detection.js setup",
+    "test-pose:build": "node ./scripts/test-pose-detection.js build",
+    "test-pose:test": "node ./scripts/test-pose-detection.js test",
+    "test-pose:run": "node ./scripts/test-pose-detection.js run",
+    "test-pose:full": "node ./scripts/test-pose-detection.js full"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",

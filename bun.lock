@@ -9,7 +9,12 @@
         "@react-navigation/elements": "^2.3.8",
         "@react-navigation/native": "^7.1.6",
         "add": "^2.0.6",
+<<<<<<< Updated upstream
         "expo": "~51.0.4",
+=======
+        "backtrack-pose": "file:../backtrack-pose",
+        "expo": "~53.0.15",
+>>>>>>> Stashed changes
         "expo-audio": "~0.4.7",
         "expo-background-task": "~0.2.8",
         "expo-blur": "~14.1.5",
@@ -700,6 +705,8 @@
     "babel-preset-expo": ["babel-preset-expo@11.0.15", "", { "dependencies": { "@babel/plugin-proposal-decorators": "^7.12.9", "@babel/plugin-transform-export-namespace-from": "^7.22.11", "@babel/plugin-transform-object-rest-spread": "^7.12.13", "@babel/plugin-transform-parameters": "^7.22.15", "@babel/preset-react": "^7.22.15", "@babel/preset-typescript": "^7.23.0", "@react-native/babel-preset": "0.74.87", "babel-plugin-react-compiler": "0.0.0-experimental-592953e-20240517", "babel-plugin-react-native-web": "~0.19.10", "react-refresh": "^0.14.2" } }, "sha512-rgiMTYwqIPULaO7iZdqyL7aAff9QLOX6OWUtLZBlOrOTreGY1yHah/5+l8MvI6NVc/8Zj5LY4Y5uMSnJIuzTLw=="],
 
     "babel-preset-jest": ["babel-preset-jest@29.6.3", "", { "dependencies": { "babel-plugin-jest-hoist": "^29.6.3", "babel-preset-current-node-syntax": "^1.0.0" }, "peerDependencies": { "@babel/core": "^7.0.0" } }, "sha512-0B3bhxR6snWXJZtR/RliHTDPRgn1sNHOR0yVtq/IiQFyuOVjFS+wuio/R4gSNkyYmKmJB4wGZv2NZanmKmTnNA=="],
+
+    "backtrack-pose": ["backtrack-pose@file:../backtrack-pose", {}],
 
     "balanced-match": ["balanced-match@1.0.2", "", {}, "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="],
 
