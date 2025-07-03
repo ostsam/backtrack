@@ -1,10 +1,11 @@
 import { Stack, useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, Pressable } from "react-native";
+import { StyleSheet, Pressable, Text } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useBaseline } from "@/context/BaselineContext";
+import BacktrackPose from "@/modules/backtrack-pose";
 
 export default function CalibrationScreen() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function CalibrationScreen() {
       <ThemedText style={styles.instructions}>
         Align yourself so the camera sees your shoulders and eyes, then tap Set
         Baseline.
+        <Text>{BacktrackPose.hello()}</Text>
       </ThemedText>
       <Pressable
         onPress={handleSetBaseline}

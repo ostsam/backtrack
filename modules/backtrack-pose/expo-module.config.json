@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["BacktrackPoseModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.backtrackpose.BacktrackPoseModule"]
+  }
+}

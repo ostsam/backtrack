@@ -1,0 +1,19 @@
+{
+  "name": "backtrack-pose",
+  "version": "1.0.0",
+  "description": "Native pose detection module for Backtrack app",
+  "main": "index.ts",
+  "platforms": [
+    "apple",
+    "android",
+    "web"
+  ],
+  "expo": {
+    "name": "backtrack-pose",
+    "platforms": [
+      "apple",
+      "android",
+      "web"
+    ]
+  }
+}
