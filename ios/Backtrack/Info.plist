@@ -90,5 +90,8 @@
     <string>Automatic</string>
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
+    <!-- Disable camera shutter sound -->
+    <key>UIShowsShutterSound</key>
+    <false/>
   </dict>
 </plist>

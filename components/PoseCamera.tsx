@@ -88,6 +88,8 @@ export default function PoseCamera() {
         const photo: CameraCapturedPicture =
           await cameraRef.current.takePictureAsync({
             base64: true,
+            // Disable shutter sound
+            skipProcessing: true,
           });
         console.log("PoseCamera: Captured frame");
         // Store frame dimensions for overlay scaling
